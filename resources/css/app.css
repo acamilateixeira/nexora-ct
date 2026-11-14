@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        @apply bg-paper text-ink antialiased;
+    }
+
+    ::selection {
+        @apply bg-brand-tint;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+        @apply outline outline-[3px] outline-offset-4 outline-brand;
+    }
+}
+
+@layer components {
+    .wordmark {
+        @apply font-display font-extrabold tracking-[-0.05em] leading-none;
+    }
+
+    .eyebrow {
+        @apply flex items-center gap-2.5 text-[10px] font-bold uppercase tracking-[0.18em] text-brand;
+    }
+
+    .eyebrow::before {
+        content: '';
+        @apply h-1.5 w-1.5 rounded-full bg-current;
+    }
+
+    .card {
+        @apply rounded-[5px] border border-[#d6e0ea] bg-paper;
+    }
+
+    .btn {
+        @apply inline-flex items-center justify-center gap-3 rounded px-5 py-3.5 text-xs font-semibold transition duration-200 hover:-translate-y-0.5 disabled:pointer-events-none disabled:opacity-50;
+    }
+
+    .btn-primary {
+        @apply btn bg-brand text-white hover:bg-brand-dark;
+    }
+
+    .btn-quiet {
+        @apply btn border border-line hover:border-ink;
+    }
+
+    .btn-light {
+        @apply btn bg-paper text-brand;
+    }
+
+    .field {
+        @apply block w-full rounded border-line bg-white px-3.5 py-3 text-sm shadow-none placeholder:text-[#8a96a6] focus:border-brand focus:ring-2 focus:ring-brand/15;
+    }
+
+    .tag {
+        @apply inline-flex items-center rounded-[3px] px-1.5 py-1 text-[9px] font-bold uppercase tracking-wider;
+    }
+}
+
+[x-cloak] {
+    display: none !important;
+}
